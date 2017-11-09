@@ -1,0 +1,37 @@
+<section id="md-coluna" ng-controller="PostagemEditCtrl as ediCtrl">
+
+    <div class="alert success" ng-show="ediCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="ediCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Editar Postagem </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Titulo: </label>
+        <input ng-model="ediCtrl.postEdit.titulo" type="text" required/>
+
+        <label> Descrição: </label>
+        <textarea ui-tinymce ng-model="ediCtrl.postEdit.descricao"></textarea>
+
+        <label> Áudio(s): </label>
+
+        <a ng-show="!ediCtrl.audioDel" class="btn btn-otherOne btn-margin-tp-bt" ng-href="http://cda.rbvradios.com.br/service/audio/ouvir/{{ediCtrl.postEdit.audio}}" target="_blank">
+            <i class="fa fa-headphones fa-1x"></i>
+            Escutar Áudio
+        </a>
+
+        <input ngf-select ngf-max-size="150MB" name="file" ngf-accept="audio/mp3" ngf-pattern="'.mp3'" accept=".mp3" ng-show="ediCtrl.audioDel" ng-disabled="!ediCtrl.audioDel" ng-model="ediCtrl.postEdit.audio" type="file" ng-required="ediCtrl.audioDel"/>
+        <div ng-show="ediCtrl.audioDel" class="pr-progress" ng-show="ediCtrl.progress!=0">
+            <div class="pr-bar" style="width:{{ediCtrl.progress}}%;"></div>
+        </div>
+        <i style="" class="alert info is-hide" ng-show="form.file.$error.maxSize">O audio excede o limite de tamanho em MB!</i>
+
+        <div class="pr-edit-removeFoto" ng-hide="ediCtrl.audioDel"> <button ng-click="ediCtrl.deletarAudio('audio', ediCtrl.postEdit);" class="btn btn-danger">Deletar Áudio</button> </div>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="ediCtrl.alterar(ediCtrl.postEdit);" />
+
+    </form>
+
+</section><!-- Fim #header -->

@@ -1,0 +1,34 @@
+<section class="restrito" ng-controller="UsuariosCtrl as usuariosCtrl">
+
+    <div class="alert success" ng-show="usuariosCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="usuariosCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> Lista Usuários </h3>
+
+    <div ng-if="principalCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#usuarios/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <table class="tb-comuns">
+        <thead><!--  cabeçalho da tabela -->
+            <tr>
+                <td>Nome</td>
+                <td>Usuário</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >Nivel</td>
+                <td></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+            </tr>
+
+            <tr ng-repeat="item in usuariosCtrl.usuLista"> 
+                <td>{{item.nome}}</td>
+                <td>{{item.username}}</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' ">{{item.nivel}}</td>
+                <td><a class="btn btn-warning" ng-href="#usuarios/editar/{{item.id}}" >Editar</a></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ><button ng-click="usuariosCtrl.deletar(item, $index);" class="btn btn-danger">Deletar</button></td>
+            </tr>
+                
+        </thead><!--  cabeçalho da tabela -->
+    </table>
+
+</section><!-- Fim #header -->
+        

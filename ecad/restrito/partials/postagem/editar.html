@@ -1,0 +1,35 @@
+<section id="md-coluna" ng-controller="PostagemEditCtrl as ediCtrl">
+
+    <div class="alert success" ng-show="ediCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="ediCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Editar Relatório </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+    
+        <label> Rádio:</label>
+        <select ng-model="ediCtrl.postEdit.token_dono" required>
+            <option ng-repeat="item in ediCtrl.contas" value="{{item.token_id}}">{{item.nome}}</option>
+        </select>
+
+        <label> Valor - (Para alterar o valor delete o arquivo):</label>
+        <input ng-model="ediCtrl.postEdit.valor" ui-money-mask type="text" required ng-disabled="!ediCtrl.arqDel"/>
+
+        <label> Arquivo do Ecad (.exp): </label>
+
+        <input ngf-select ngf-max-size="150MB" name="file" ngf-accept="file/exp" ngf-pattern="'.exp'" accept=".exp" ng-show="ediCtrl.arqDel" ng-disabled="!ediCtrl.arqDel" ng-model="ediCtrl.postEdit.arquivo" type="file" ng-required="ediCtrl.arqDel"/>
+        <div ng-show="ediCtrl.arqDel" class="pr-progress" ng-show="ediCtrl.progress!=0">
+            <div class="pr-bar" style="width:{{ediCtrl.progress}}%;"></div>
+        </div>
+        <i style="" class="alert info is-hide" ng-show="form.file.$error.maxSize">O arquivo excede o limite de tamanho em MB!</i>
+
+        <div ng-hide="ediCtrl.arqDel"> <button ng-click="ediCtrl.deletarArq('arq', ediCtrl.postEdit);" class="btn btn-danger">Deletar Arquivo</button> </div>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="ediCtrl.alterar(ediCtrl.postEdit);" />
+
+    </form>
+
+</section><!-- Fim #header -->

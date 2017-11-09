@@ -1,0 +1,284 @@
+html,body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+#corpo{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+#coluna_esquerda{
+	width: 268px;
+	height: 100%;
+	min-height: 100%;
+	height: auto;
+	background: #F2F2F2;
+	box-shadow: 0px 0px 5px #333;
+	-moz-box-shadow: 0px 0px 5px #333; 
+	-webkit-box-shadow: 0px 0px 5px #333; 
+	float: left;
+}
+
+
+#titulo_rbv{
+	width: 248px;
+	height: auto;
+	border-bottom: 2px solid #CCC;
+	margin: 0px  10px  30px  10px;  
+	float: left;
+}
+
+#titulo_rbv img{
+	width: 165px;
+	height: 22px;
+	margin: 20px 0px 0px 20px;
+	float: left;
+}
+
+#titulo_rbv span{
+	width: 165px;
+	height: 22px;
+	font-family: Arial;
+	font-size: 13px;
+	color: #999;
+	font-weight: bold;
+	margin: 5px 0px 0px 50px;
+	float: left;
+}
+
+#sem_niver{
+	width: 248px;
+	height: auto;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	color: #F3AE12;
+	text-align: center;
+	background:#333;
+	padding: 5px 5px 0px 5px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin: 0px  10px  10px  5px; 
+	cursor: pointer;
+	float: left;
+}
+
+
+#conteudo_rbv{
+	width: 248px;
+	height: auto;
+	margin: 0px  10px  10px  10px;  
+	float: left;
+}
+
+
+#conteudo_rbv:hover{
+	width: 248px;
+	height: auto;
+	background:#333;
+	padding: 5px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin: 0px  10px  10px  5px; 
+	cursor: pointer;
+	float: left;
+}
+
+#conteudo_rbv_dia{
+	width: 248px;
+	height: auto;
+	background:#333;
+	padding: 5px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin: 0px  10px  10px  5px; 
+	cursor: pointer;
+	float: left;
+}
+
+#conteudo_rbv_dia ul{
+	width: 248px;
+	height: auto;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+#conteudo_rbv ul{
+	width: 248px;
+	height: auto;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+}
+
+.data_aniver{
+	width: 40px;
+	height: 100%;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px;
+	margin: 0px 5px 0px 0px;
+	background: #333;
+	font-family: Arial;
+	font-size: 23px;
+	font-weight: bold;
+	color: #F3AE12;
+	text-align: center;
+	float: left;
+}
+
+.data_aniver span{
+	width: 40px;
+	height: 40px;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	float: left;
+}
+
+.nome_aniver{
+	width: 188px;
+	height: auto;
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+	color: #999;
+	text-transform: capitalize;
+	text-align: center;
+	margin: 5px 0px 0px 0px;
+	float: left;
+}
+
+.nome_empresa{
+	width: 188px;
+	height: auto;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	color: #666666;
+	text-align: center;
+	margin: 5px 0px 0px 0px;
+	float: left;
+}
+
+#formulario{
+	width: 248px;
+	height: auto;
+	margin: 10px 0px 0px 0px;
+	padding: 0px;
+	float: left;
+}
+
+#formulario input[type=text]{
+	width: 230px;
+	height: auto;
+	padding: 5px;
+	margin: 5px 0px 0px 0px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background-color:#F2F2F2;
+    -webkit-box-shadow: INSET 0 0 3px #CCC;  
+    -moz-box-shadow: INSET 0 0 3px #CCC;  
+    box-shadow: INSET 0 0 3px #CCC; 
+	float: left;
+
+}
+
+#formulario input[type=submit]{
+	width: auto;
+	height: auto;
+	border: 1px solid #333;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 3px 8px 3px 8px;
+	margin: 5px 10px 0px 0px;
+	background: #333;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	cursor: pointer;
+	float: right;
+}
+
+#procura{
+	width: 500px;
+	height: 200px;
+	top: 30%;
+	left: 40%;
+	position: absolute;
+}
+
+
+#logo{
+	width: 500px;
+	height: 86px;
+	top: 10%;
+	left: 40%;
+	text-align: center;
+	position: absolute;
+}
+
+
+#logo img{
+	width: 254px;
+	height: 86px;
+}
+
+/* itens internos pedido formulario ex */
+
+#status {
+	width:100%;
+	height: auto;
+	display: none;
+	border:1px solid #4F8A10;
+	background: #DFF2BF;
+	color: #4F8A10;
+	text-align:center; 
+	font-family:Arial; 
+	font-size:18px;
+	font-weight: bold;
+	padding:10px 0px 10px 0px;
+	left: -2px;
+	top: 0px;
+	z-index: 100;
+	position: absolute;
+}
+
+#status_erro{
+	width:100%;
+	height: auto;
+	display: none;
+	border:1px solid #9F6000; 
+	background:#FEEFB3;
+	color: #9F6000;
+	text-align:center; 
+	font-family:Arial; 
+	font-size:18px;
+	font-weight: bold;
+	padding:10px 0px 10px 0px;
+	left: -2px;
+	top: 0px;
+	z-index: 100;
+	position: absolute;
+}
+
+/* fim itens internos pedido formulario*/

@@ -1,0 +1,21 @@
+<section class="restrito"  ng-controller="EditarSetoresCtrl as setCtrl">
+
+    <div class="alert success" ng-show="setCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="setCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#setores">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Editar Setor</h3>
+
+    <form name="form" id="form" novalidate>
+
+        <label> Nome do Setor: </label>
+        <input ng-model="setCtrl.setorEdit.nome" type="text" required/>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="setCtrl.alterar();" />
+
+    </form>
+
+</section><!-- Fim #header -->

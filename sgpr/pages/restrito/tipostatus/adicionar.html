@@ -1,0 +1,24 @@
+<section class="restrito"  ng-controller="AddTipoStatusCtrl as statCtrl">
+
+    <div class="alert success" ng-show="statCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="statCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#tipostatus">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Adicionar Tipo de Status </h3>
+
+    <form name="form" id="form" novalidate>
+
+        <label> Nome do Status: </label>
+        <input ng-model="statCtrl.statusLista.nome" type="text" required/>
+
+        <label> Valor do Status: </label>
+        <input ng-model="statCtrl.statusLista.valor" type="text" required/>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="statCtrl.salvar(statCtrl.statusLista);" />
+
+    </form>
+
+</section><!-- Fim #header -->

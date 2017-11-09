@@ -1,0 +1,66 @@
+<section class="restrito"  ng-controller="EditarNiveisAcessoCtrl as nilCtrl">
+
+    <div class="alert success" ng-show="nilCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="nilCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#niveisacesso">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Editar Nível</h3>
+
+    <form name="form" id="form" class="formulario" novalidate>
+
+        <label> Descrição do Nivel: </label>
+        <input ng-model="nilCtrl.nivelEdit.descricao" type="text" required/>
+
+        <label> Número do Nivel: </label>
+        <input ng-model="nilCtrl.nivelEdit.nivel" type="text" required/>
+
+        <fieldset>
+            <legend> Pode abrir chamado para: </legend>
+            <ul>
+                <li>
+                    <li ng-repeat="item in nilCtrl.listaAtendimento">
+                        <input type="checkbox" ng-click="nilCtrl.toggleSelectionAtendimento(item.idatendimento)"
+                            ng-value="item.idatendimento" ng-checked="nilCtrl.selectedAtendimento.indexOf(item.idatendimento) > -1">{{item.nome}}
+                    </li>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend> Pode dar suporte a: </legend>
+            <ul>
+                <li>
+                    <li ng-repeat="item in nilCtrl.listaAtendimento">
+                        <input type="checkbox" ng-click="nilCtrl.toggleSelectionAtendimentoSuporte(item.idatendimento)"
+                            ng-value="item.idatendimento" ng-checked="nilCtrl.selectedAtendimentoSuporte.indexOf(item.idatendimento) > -1">{{item.nome}}
+                    </li>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend> Status (Ao qual ele pode ter acesso): </legend>
+            <ul>
+                <li>
+                    <li ng-repeat="item in nilCtrl.listaStatus">
+                        <input type="checkbox" ng-click="nilCtrl.toggleSelectionStatus(item.idstatus)"
+                                ng-value="item.idstatus" ng-checked="nilCtrl.selectedStatus.indexOf(item.idstatus) > -1">{{item.nome}}
+                    </li>
+                </li>
+            </ul>
+        </fieldset>
+
+        <label> Auto Chamado (Ele Pode abrir chamado para ele mesmo?): </label>
+        <select ng-model="nilCtrl.nivelEdit.auto_chamado">
+            <option ng-value="true"> Sim </option>
+            <option ng-value="false"> Não </option>
+        </select>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="nilCtrl.alterar(nilCtrl.nivelEdit);" />
+
+    </form>
+
+</section><!-- Fim #header -->

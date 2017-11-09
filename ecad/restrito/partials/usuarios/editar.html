@@ -1,0 +1,66 @@
+<section id="md-coluna" ng-controller="UsuariosEditCtrl as ediCtrl">
+
+    <div class="alert success" ng-show="ediCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="ediCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Editar Usuário </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Nome Completo: </label>
+        <input ng-model="ediCtrl.usuEdit.nome" type="text" required/>
+
+        <label> Email: </label>
+        <input ng-model="ediCtrl.usuEdit.email" type="email" required/>
+
+        <label> Senha: </label>
+        <input ng-model="ediCtrl.usuEdit.senha" type="password" required/>
+
+<!--         <label> Perfil Name: </label>
+        <input ng-model="ediCtrl.usuEdit.perfilname" type="text" required/> -->
+
+        <label> Telefone: </label>
+        <input ng-model="ediCtrl.usuEdit.telefone" ui-br-phone-number type="text" required/>
+
+        <label> Rua: </label>
+        <input ng-model="ediCtrl.usuEdit.rua" type="text" required/>
+
+        <label> Bairro: </label>
+        <input ng-model="ediCtrl.usuEdit.bairro" type="text" required/>
+
+        <label> Cidade: </label>
+        <input ng-model="ediCtrl.usuEdit.cidade" type="text" required/>
+
+        <label> Foto ( 150 x 150px ): </label>
+        
+        <div class="usu-edit-foto">
+            <img class="usu-edit-foto-img" ng-show="!ediCtrl.fotoDel" ng-src="http://ecad.rbvradios.com.br/img/{{ediCtrl.usuEdit.foto}}/0/"/>
+        </div><!-- Fim .usu-edit-foto -->
+
+        <input ngf-select name="file" ngf-validate="{height: {max: 150}, width: {max: 150}}" accept="image/*" ng-show="ediCtrl.fotoDel" ng-disabled="!ediCtrl.fotoDel" ng-model="ediCtrl.usuEdit.foto" type="file" ng-required="ediCtrl.fotoDel"/>
+        <div ng-show="ediCtrl.fotoDel" class="pr-progress" ng-show="ediCtrl.progress!=0">
+            <div class="pr-bar" style="width:{{ediCtrl.progress}}%;"></div>
+        </div>
+
+        <div class="usu-edit-removeFoto" ng-hide="ediCtrl.fotoDel"> <button ng-click="ediCtrl.deletarFt('foto', ediCtrl.usuEdit);" class="btn btn-danger">Deletar</button> </div>
+
+        <label ng-if=" prinCtrl.controle.tipo == 'adm' "> Nível: </label>
+        <select ng-if=" prinCtrl.controle.tipo == 'adm' " ng-model="ediCtrl.usuEdit.nivel" ng-options="opt.nivel as opt.nivel for opt in [{nivel:1},{nivel:2}]" required>
+        </select>
+
+        <label ng-if=" prinCtrl.controle.tipo == 'adm' "> Conta(s) que esse perfil pode gerenciar: </label>
+        <ul ng-if=" prinCtrl.controle.tipo == 'adm' ">
+            <li>
+                <li ng-repeat="item in ediCtrl.usuarios">
+                    <input type="checkbox" ng-click="ediCtrl.toggleSelection(item.token_id)"  ng-value="item.token_id" ng-checked="ediCtrl.tokens.indexOf(item.token_id) > -1">{{item.nome}}
+                </li>
+            </li>
+        </ul>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="ediCtrl.alterar(ediCtrl.usuEdit);" />
+
+    </form>
+
+</section><!-- Fim #header -->

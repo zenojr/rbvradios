@@ -1,0 +1,49 @@
+<section class="restrito"  ng-controller="UsuariosCtrl as usuariosCtrl">
+
+    <div class="alert success" ng-show="usuariosCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="usuariosCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#usuarios">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Adicionar Usuário</h3>
+
+    <form name="form" id="form" class="formulario" novalidate>
+
+        <label> Nome: </label>
+        <input ng-model="usuariosCtrl.usuarios.nome" type="text" required/>
+
+        <label> Email: </label>
+        <input ng-model="usuariosCtrl.usuarios.email" type="text" required/>
+
+        <label> Perfil Name: </label>
+        <div class="perfil-name">{{ usuariosCtrl.usuarios.nome | lowerCaseNoSpace}}</div>
+
+        <label> Login: </label>
+        <input ng-model="usuariosCtrl.usuarios.username" type="text" required/>
+
+        <label> Senha: </label>
+        <input ng-model="usuariosCtrl.usuarios.senha" type="password" required/>
+
+        <label> Nível: </label>
+        <select ng-model="usuariosCtrl.usuarios.nivel" required>
+            <option ng-repeat="item in usuariosCtrl.nivelLista" ng-value="{{item.nivel}}">{{item.nivel}} - {{item.descricao}}</option>
+        </select>
+
+        <fieldset>
+            <legend> Rádios (As quais ele pode ter acesso): </legend>
+            <ul>
+                <li>
+                    <li ng-repeat="item in usuariosCtrl.listaRadios">
+                        <input type="checkbox" ng-click="usuariosCtrl.toggleSelectionRadios(item.id)" ng-value="item.id">{{item.radio}}
+                    </li>
+                </li>
+            </ul>
+        </fieldset>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="usuariosCtrl.salvar();" />
+
+    </form>
+
+</section><!-- Fim #header -->

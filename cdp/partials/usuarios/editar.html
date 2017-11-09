@@ -1,0 +1,29 @@
+<section id="md-coluna" ng-controller="UsuariosEditCtrl as ediCtrl">
+
+    <div class="alert success" ng-show="ediCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="ediCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Editar Usuário </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Nome Completo: </label>
+        <input ng-model="ediCtrl.usuEdit.nome" type="text" required/>
+
+        <label> Email: </label>
+        <input ng-model="ediCtrl.usuEdit.email" type="email" required/>
+
+        <label> Senha: </label>
+        <input ng-model="ediCtrl.usuEdit.senha" type="password" required/>
+
+        <label ng-if=" prinCtrl.controle.tipo == 'adm' "> Nível: </label>
+        <select ng-if=" prinCtrl.controle.tipo == 'adm' " ng-model="ediCtrl.usuEdit.nivel" ng-options="opt.nivel as opt.nivel for opt in [{nivel:1},{nivel:2}]" required>
+        </select>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="ediCtrl.alterar(ediCtrl.usuEdit);" />
+
+    </form>
+
+</section><!-- Fim #header -->

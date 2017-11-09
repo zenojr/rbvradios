@@ -1,0 +1,36 @@
+<section class="restrito" ng-controller="RadiosCtrl as radCtrl">
+
+    <div class="alert success" ng-show="radCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="radCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> Lista de Empresas </h3>
+
+    <div ng-if="principalCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#radios/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <table class="tb-comuns">
+        <thead><!--  cabeçalho da tabela -->
+            <tr>
+                <td>Radios</td>
+                <td>Mala de Emails</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+            </tr>
+
+            <tr ng-repeat="item in radCtrl.radLista"> 
+                <td>{{item.radio}}</td>
+                <td>{{item.email}}</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <a class="btn btn-warning" ng-href="#radios/editar/{{item.id}}" >Editar</a>
+                </td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <button ng-click="radCtrl.deletar(item, $index);" class="btn btn-danger">Deletar</button>
+                </td>
+            </tr>
+                
+        </thead><!--  cabeçalho da tabela -->
+    </table>
+
+</section><!-- Fim #header -->
+        

@@ -1,0 +1,34 @@
+<section class="restrito" ng-controller="SetoresCtrl as setCtrl">
+
+    <div class="alert success" ng-show="setCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="setCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> Lista de Setores </h3>
+
+    <div ng-if="principalCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#setores/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <table class="tb-comuns">
+        <thead><!--  cabeçalho da tabela -->
+            <tr>
+                <td>Setor</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+            </tr>
+
+            <tr ng-repeat="item in setCtrl.setorLista"> 
+                <td>{{item.nome}}</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <a class="btn btn-warning" ng-href="#setores/editar/{{item.id}}" >Editar</a>
+                </td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <button ng-click="setCtrl.deletar(item, $index);" class="btn btn-danger">Deletar</button>
+                </td>
+            </tr>
+                
+        </thead><!--  cabeçalho da tabela -->
+    </table>
+
+</section><!-- Fim #header -->
+        

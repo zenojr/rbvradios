@@ -1,0 +1,44 @@
+<div class="box-pj">
+	
+	<div class="box-pj-header" ng-class="status">
+		<ul ng-if=" (controle.tipo == 'visitante' || controle.tipo == 'usuario' || controle.tipo == 'adm') && controle.perfilname != dono ">
+			<li class="is-overflowhide box-pj-status">Status: {{status | fristUpperCase}}</li>
+			<a href="#/projetos/visualizar/{{id}}" title="Visualizar por completo">
+				<li class="fa fa-file fa-1x"></li>
+			</a>
+			<a href="#/projetos/edit/{{id}}" title="Editar" ng-if=" controle.perfilname == criado ">
+				<li class="fa fa-pencil-square-o fa-lg"></li>
+			</a>
+		</ul>
+		<ul ng-if=" (controle.tipo == 'adm' || controle.tipo == 'usuario') && controle.perfilname == dono ">
+			<li class="is-overflowhide box-pj-status">Status: {{status | fristUpperCase}}</li>
+			<li class="fa fa-close fa-lg" ng-click="deletar();" title="Excluir"></li>
+			<a href="#/projetos/edit/{{id}}" title="Editar">
+				<li class="fa fa-pencil-square-o fa-lg"></li>
+			</a>
+			<a href="#/projetos/visualizar/{{id}}" title="Visualizar por completo">
+				<li class="fa fa-file fa-1x"></li>
+			</a>
+		</ul>
+	</div><!-- Fim .box-pj-header -->
+
+	<div class="box-pj-main">
+		<h3>{{empresa}}</h3>
+		<h4>{{nome}}</h4>
+		<p ng-bind-html="descricao"></p>
+	</div><!-- Fim .box-pj-main -->
+
+	<div class="box-pj-footer">
+		<ul>
+			<li>Nº Chamado: {{id}}</li>
+			<li>Criador: {{criado}}</li>
+			<li>Tipo: {{tipo | fristUpperCase}}</li>
+			<li>Criado dia: {{data | convertDate}}</li>
+			<li ng-if="status != 'pronto' && dataupdate != '0000-00-00 00:00:00' ">Atualizado dia: {{dataupdate | convertDate}}</li>
+			<li ng-if="status == 'pronto' ">Fechado dia: {{datafim | convertDate}}</li>
+			<li ng-if="status == 'agendado' ">Agendado para: </li>
+			<li ng-if="status == 'agendado' ">Dia {{dtagendamento | convertDateAgendamento}} às {{hragendamento}} h</li>
+		</ul>
+	</div><!-- Fim .box-pj-main -->
+
+</div><!-- Fim .box-perfil -->

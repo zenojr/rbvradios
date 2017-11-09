@@ -1,0 +1,76 @@
+<section class="restrito" ng-controller="EquipamentosCtrl as equiCtrl">
+
+    <div class="alert success" ng-show="equiCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="equiCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> Lista de Equipamentos </h3>
+
+    <div class="m-buscas">
+        
+        <div class="m-busca-full">
+            <h3 class="m-busca-titulo"> Filtrar por Tipo/Nome: </h3>
+
+            <form name="form" id="form" novalidate>
+                <input type="text" ng-model="searchValue" required>
+            </form>
+
+        </div><!-- end .m-busca -->
+
+    </div><!-- end .m-buscas -->
+
+    <div ng-if="principalCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#equipamentos/adicionar">
+            <i class="fa fa-plus-circle"></i>
+            Adicionar
+        </a>
+
+        <button class="btn btn-purple" ng-click="equiCtrl.imprimir();">
+            <i class="fa fa-print"></i>
+            Imprimir
+        </button>
+    </div><!-- Fim #add-item -->
+
+
+    <h3 class="pr-titulo"> Equipamentos Cadastrados - Total: {{equiCtrl.equiLista.length}}</h3>
+
+    <table class="tb-comuns">
+        <thead><!--  cabeçalho da tabela -->
+            <tr>
+                <td>Empresa</td>
+                <td>Setor</td>
+                <td>Nome</td>
+                <td>Número de Registro</td>
+                <td>Tipo</td>
+                <td>Cadastrado em:</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+            </tr>
+
+            <tr ng-repeat="item in equiCtrl.equiLista | filter: searchValue "> 
+                <td>{{item.empresa}}</td>
+                <td>{{item.setor}}</td>
+                <td>{{item.nome}}</td>
+                <td>{{item.nregistro}}</td>
+                <td>{{item.tipo}}</td>
+                <td>{{item.datacadastro | convertDate}}</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <a class="btn btn-info" ng-href="#equipamentos/transferir/{{item.id}}" ng-if="item.status == 2">Transferir</a>
+                </td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <a class="btn btn-warning" ng-href="#equipamentos/editar/{{item.id}}" >
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <button ng-click="equiCtrl.deletar(item, $index);" class="btn btn-danger">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </td>
+            </tr>
+                
+        </thead><!--  cabeçalho da tabela -->
+    </table>
+
+</section><!-- Fim #header -->
+        

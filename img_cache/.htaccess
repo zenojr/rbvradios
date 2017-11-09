@@ -1,0 +1,8 @@
+AddHandler php56-script .php
+suPHP_ConfigPath /home/rbvradios1/
+
+Options -Indexes
+Order Deny,Allow
+
+RewriteEngine On
+RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/([a-z0-9-]+)/?$ /image.php?nomedono=$1&id=$2&tamanho=$3 [NC]

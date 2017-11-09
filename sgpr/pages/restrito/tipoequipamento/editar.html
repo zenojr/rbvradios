@@ -1,0 +1,21 @@
+<section class="restrito"  ng-controller="EditarTiposEquipamentoCtrl as tipoCtrl">
+
+    <div class="alert success" ng-show="tipoCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="tipoCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#tipoequipamento">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Editar Tipo de Equipamento</h3>
+
+    <form name="form" id="form" novalidate>
+
+        <label> Tipo do Equipamento: </label>
+        <input ng-model="tipoCtrl.tipoEquiEdit.nome" type="text" required/>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="tipoCtrl.alterar();" />
+
+    </form>
+
+</section><!-- Fim #header -->

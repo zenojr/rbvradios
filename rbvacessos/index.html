@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>RBV - Analytics</title>
+    <meta name="language" content="Portuguese" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="web-files/css/main.css"/>
+
+	<script>
+	(function(w,d,s,g,js,fs){
+	  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+	  js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+	  js.src='https://apis.google.com/js/platform.js';
+	  fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+	}(window,document,'script'));
+	</script>
+
+	<!-- This demo uses the Chart.js graphing library and Moment.js to do date
+	     formatting and manipulation. -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+
+	<!-- Include the ViewSelector2 component script. -->
+	<script src="web-files/js/view-selector2.js"></script>
+
+	<!-- Include the DateRangeSelector component script. -->
+	<script src="web-files/js/date-range-selector.js"></script>
+
+	<!-- Include the ActiveUsers component script. -->
+	<script src="web-files/js/active-users.js"></script>
+
+</head>
+<body ng-app="appSite">
+
+	<main class="wrapper">
+
+		<nav class="navigation">
+
+			<a href="/">
+				<h1 class="navegation-titulo"> RBV<span class="color-orange">ANALYTICS</span> </h1>
+			</a>
+
+		</nav>
+		
+		<div class="content" ng-cloak>
+
+			<section class="container">
+				<modulo-analytic gasites="{band:'ga:65087534', cacanjure:'ga:60010630', capinzal:'ga:60006664', fm:'ga:108653928', videira:'ga:60012262', tangara:'ga:60004566', hits:'ga:59399645', top:'ga:67669679', vitoria:'ga:58051127'}" delay="15000" ></modulo-analytic>
+			</section>
+
+		</div><!-- end .content -->
+	
+	</main><!-- end .wrapper -->
+
+	<script src="web-files/js/app.min.js"></script>
+
+</body>
+</html>

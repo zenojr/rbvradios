@@ -1,0 +1,29 @@
+<section id="md-coluna" ng-controller="PostagemAddCtrl as postCtrl">
+
+    <div class="alert success" ng-show="postCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="postCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Adicionar Postagem </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Titulo: </label>
+        <input ng-model="postCtrl.postagem.titulo" type="text" required/>
+
+        <label> Descrição: </label>
+        <textarea ui-tinymce ng-model="postCtrl.postagem.descricao"></textarea>
+
+        <label> Áudio(s): </label>
+        <input ngf-select ngf-max-size="150MB" name="file" ngf-accept="audio/mp3" ngf-pattern="'.mp3'" accept=".mp3" ng-model="postCtrl.postagem.audio" type="file" required/>
+        <div class="pr-progress" ng-show="postCtrl.progress!=0">
+            <div class="pr-bar" style="width:{{postCtrl.progress}}%;"></div>
+        </div>
+        <i style="" class="alert info is-hide" ng-show="form.file.$error.maxSize">O audio excede o limite de tamanho em MB!</i>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="postCtrl.salvar(postCtrl.postagem);" />
+
+    </form>
+
+</section><!-- Fim #header -->

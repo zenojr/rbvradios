@@ -1,0 +1,40 @@
+<section class="md-coluna" ng-controller="ClientesCtrl as cliCtrl">
+
+    <div class="alert success" ng-show="cliCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="cliCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2> Opções </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <div ng-if=" prinCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#clientes/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <div class="md-clientes-lista">
+
+        <div class="titulo-style" ng-if=" prinCtrl.controle.tipo == 'adm' ">
+            <h2 class="pr-titulo"> Lista Clientes </h2>
+        </div><!-- Fim .titulo-style -->
+
+        <div class="md-clientes-box" ng-repeat="item in cliCtrl.cliLista">
+
+            <ul>
+                <li>
+                    <h2>{{item.nome}}</h2>
+                </li>
+                <li>
+                    <a class="btn btn-warning" ng-href="#clientes/editar/{{item.id}}" >Editar</a>
+                </li>
+                <li ng-if=" prinCtrl.controle.tipo == 'adm' ">
+                    <button ng-click="cliCtrl.deletar(item);" class="btn btn-danger">Deletar</button>
+                </li>
+            </ul>
+            
+        </div><!-- Fim .md-clientes-box -->
+
+    </div><!-- Fim .md-clientes-lista -->
+
+
+</section><!-- Fim #header -->
+        

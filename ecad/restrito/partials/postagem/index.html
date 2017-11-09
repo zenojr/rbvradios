@@ -1,0 +1,53 @@
+<section id="md-coluna" ng-controller="PostagemCtrl as postCtrl">
+
+    <div class="alert success" ng-show="postCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="postCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2> Opções </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <div class="add-item">
+        <a class="btn btn-success" href="#postagem/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <div class="md-postagem-lista">
+
+        <div class="titulo-style">
+            <h2 class="pr-titulo"> Relatórios: </h2>
+        </div><!-- Fim .titulo-style -->
+
+        <div class="timeline-post" ng-repeat="item in postCtrl.postLista">
+
+            <div class="timeline-post-opt">
+                <ul>
+                    <li>
+                        <span ng-click="postCtrl.deletar(item);" title="Excluir">
+                            <i class="fa fa-close fa-2x style-color-danger"></i>
+                        </span>                    
+                    </li>
+                    
+                    <li>
+                        <a href="#/postagem/editar/{{item.id}}" title="Editar">
+                            <i class="fa fa-pencil-square-o fa-2x style-color-warning"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- Fim .timeline-post-opt -->
+            
+            <div class="timeline-post-conteudo">
+                <ul>
+                    <a href="http://ecad.rbvradios.com.br/pdf/{{item.arquivo}}/0/" target="_blank">
+                        <li class="timeline-post-conteudo-desc">
+                            Ecad do mês {{item.data}} - {{item.nome_dono}}
+                        </li>
+                    </a>
+                </ul>
+            </div><!-- Fim .timeline-post-conteudo -->
+
+        </div><!-- Fim .timeline-post -->
+
+    </div><!-- Fim .timeline -->
+
+</section><!-- Fim #header -->
+        

@@ -1,0 +1,2 @@
+function clearDefault(field){if(field.defaultValue==field.value)field.value='';else if(field.value=='')field.value=field.defaultValue;}
+function search(busca){document.getElementById("search").value = busca; document.frmBusca.submit()}

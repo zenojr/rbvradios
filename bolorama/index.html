@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>.: BOLORAMA QR :.</title>
+    <meta id="metaDesc" name="description" content="Gere apenas um QR CODE para seu aplicativo podendo direcionar para Android ou IOS automaticamente!" />
+    <meta id="metaKeyword" name="keywords" content="Site para QR Code de Aplicativos, QRCODE, Grátis, APP, Url, QRCODE FREE, QR CODE, Aplicativos, Gerar QRCODE" />
+    <meta name="language" content="Portuguese" />
+    <!-- facebook meta tags compartilhamento -->
+    <meta property="og:title" content="BOLORAMA QR"> 
+    <meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image" content="http://www.rbvradios.com.br/bolorama/web-files/imagem/marca.png"> 
+    <meta property="og:description" content="Gere apenas um QR CODE para seu aplicativo podendo direcionar para Android ou IOS automaticamente!" />
+    <!-- facebook meta tags compartilhamento -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="web-files/css/main.css"/>
+</head>
+<body ng-app="appSite">
+
+	<main class="wrapper">
+
+		<nav class="navigation">
+			<section class="container">
+
+				<a class="navigation-title" href="/">
+					<img class="img" src="web-files/imagem/marca.png"/>
+					<h1 class="title">BOLORAMA</h1>
+				</a>
+
+			</section>
+		</nav>
+		
+		<div class="content" ng-cloak>
+
+			<section class="container">
+				<blockquote>
+					<p><em>Utilize apenas um QR CODE! <br> Utilize o link aqui gerado no seu QR CODE e ele atendera ANDROID e IOS!</em></p>
+				</blockquote>
+			</section>
+
+			<section class="container">
+
+				<form novalidate>
+					<h4> Adicione as URLs: </h4>
+					<input ng-model="linkAndroid" type="url" placeholder="Url App Android">
+					<input ng-model="linkApple" type="url" placeholder="Url App Apple">
+				</form>		
+				
+				<section class="container" ng-if="linkAndroid && linkApple">
+					<div class="row">
+						<div class="column column-60">
+							<h5> Url Final: </h5>
+							<link-final android="linkAndroid" apple="linkApple"></link-final>
+						</div>
+						<div class="column column-40">
+							<blockquote>
+								<p><em>Yeah!! <br> Agora é só copiar o link e gerar um QR CODE em um dos links abaixo!</em></p>
+							</blockquote>
+						</div>
+					</div>
+
+					<div class="row row-margin">
+
+						<div class="column">
+
+							<h5> Geradores de QR CODE Legais (Grátis):</h5>
+
+							<ul>
+								<li>
+									<a href="http://www.qrstuff.com/" target="_blank">
+										QRstuff
+									</a>
+								</li>
+								<li>
+									<a href="http://goqr.me/" target="_blank">
+										GOQR
+									</a>
+								</li>
+								<li>
+									<a href="https://www.unitag.io/qrcode" target="_blank">
+										Unitag QR
+									</a>
+								</li>
+							</ul>
+
+						</div><!-- end .column -->
+
+					</div><!-- end .row -->
+
+				</section><!-- end .container -->
+
+			</section><!-- end .container -->
+
+		</div><!-- end .content -->
+	
+	</main><!-- end .wrapper -->
+
+	<script src="web-files/js/app.min.js"></script>
+	
+	<!-- analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-80058801-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<section id="md-coluna" ng-controller="UsuariosCtrl as usuCtrl">
+
+    <div class="alert success" ng-show="usuCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="usuCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Adicionar Usuário </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Nome Completo: </label>
+        <input ng-model="usuCtrl.usuarios.nome" type="text" required/>
+
+        <label> Email: </label>
+        <input ng-model="usuCtrl.usuarios.email" type="email" required/>
+
+        <label> Senha: </label>
+        <input ng-model="usuCtrl.usuarios.senha" type="password" required/>
+
+        <label> Perfil Name: </label>
+        <div class="usu-perfil-name">{{ usuCtrl.usuarios.nome | lowerCaseNoSpace}}</div>
+
+        <label> Foto ( 150 x 150px ): </label>
+        <input ngf-select ngf-validate="{height: {max: 150}, width: {max: 150}}" name="file" accept="image/*" ng-model="usuCtrl.usuarios.foto" type="file" required/>
+        <div class="pr-progress" ng-show="prCtrl.progress!=0">
+            <div class="pr-bar" style="width:{{prCtrl.progress}}%;"></div>
+        </div>
+
+        <label> Nível: </label>
+        <select ng-model="usuCtrl.usuarios.nivel" required>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+        </select>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="usuCtrl.salvar(usuCtrl.usuarios);" />
+
+    </form>
+
+</section><!-- Fim #header -->

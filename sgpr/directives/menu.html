@@ -1,0 +1,83 @@
+<nav class="menu">
+    <ul>
+    	<a href="#/">
+    		<li class="fa fa-arrow-left fa-2x"></li>
+    	</a>
+        <a href="#/perfil/{{controle.perfilname}}">
+            <li class="fa fa-home fa-2x"></li>
+        </a>
+        <a href="#/projetos/add/null">
+        	<li class="fa fa-plus-square fa-2x"></li>
+        </a>
+        <li>
+            <form novalidate>
+                <input ng-model="searchnome" type="text" placeholder="Procurar um Projeto ..." />
+            </form>
+        </li>
+        <li>
+            <i class="fa fa-bars fa-2x"></i>
+            <ul class="sub-menu"> <!-- SUBMENU -->
+                <a href="#/radios" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-volume-up fa-lg"></i>
+                        Rádios
+                    </li>
+                </a>
+                <a href="#/equipamentos" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-desktop fa-lg"></i>
+                        Equipamentos
+                    </li>
+                </a>
+                <a href="#/equipamentos/relatorio" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-file-text fa-lg"></i>
+                        Relatório
+                    </li>
+                </a>
+                <a href="#/setores" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-pie-chart fa-lg"></i>
+                        Setores
+                    </li>
+                </a>
+                <a href="#/tipoequipamento" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-shopping-cart fa-lg"></i>
+                        Tipo Equipa.
+                    </li>
+                </a>
+                <a href="#/niveisacesso" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-address-card-o"></i>
+                        Niveis de Acesso
+                    </li>
+                </a>
+                <a href="#/tipoatendimento" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-american-sign-language-interpreting"></i>
+                        Tipo Atendim.
+                    </li>
+                </a>
+                <a href="#/tipostatus" ng-if=" controle.tipo == 'adm' ">
+                    <li>
+                        <i class="fa fa-thermometer-three-quarters"></i>
+                        Tipo Status
+                    </li>
+                </a>
+				<a href="#/usuarios">
+	                <li>
+	                    <i class="fa fa-user fa-lg"></i>
+	                    Users
+	                </li>
+				</a>
+				<a href="service/logout">
+	                <li>
+	                    <i class="fa fa-sign-out fa-lg"></i>
+	                    sair
+	                </li>
+				</a>
+            </ul>
+        </li>
+    </ul>
+</nav><!-- Fim .menu -->

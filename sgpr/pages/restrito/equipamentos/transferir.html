@@ -1,0 +1,44 @@
+<section class="restrito"  ng-controller="TransferirEquipamentosCtrl as equiCtrl">
+
+    <div class="alert success" ng-show="equiCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="equiCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#equipamentos">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Transferir Equipamento</h3>
+
+    <form name="form" id="form" novalidate>
+
+        <label> Empresa: </label>
+        <select ng-model="equiCtrl.editEqui.empresa" required>
+            <option ng-repeat="item in equiCtrl.radios">{{item.radio}}</option>
+        </select>
+
+        <label> Setor: </label>
+        <select ng-model="equiCtrl.editEqui.setor" required>
+            <option ng-repeat="item in equiCtrl.setores">{{item.nome}}</option>
+        </select>
+
+
+        <label> Nome Equipamento: </label>
+        <input ng-model="equiCtrl.editEqui.nome" type="text" required/>
+
+        <label> Descrição: </label>
+        <textarea ui-tinymce ng-model="equiCtrl.editEqui.descricao"></textarea>
+
+        <label> Status: </label>
+        <select ng-model="equiCtrl.editEqui.status" required>
+            <option value="1"> Ativo </option>
+            <option value="0"> Desativado </option>
+        </select>
+        
+        <label> Número de Registro: </label>
+        <input ng-model="equiCtrl.editEqui.nregistro" disabled type="text" required/>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="equiCtrl.transferir(equiCtrl.editEqui);" />
+
+    </form>
+
+</section><!-- Fim #header -->

@@ -1,0 +1,30 @@
+<section class="md-coluna" ng-controller="TodoPerfisCtrl as tperCtrl">
+
+    <div class="md-perfis-lista">
+
+        <div class="titulo-style">
+            <h2 class="pr-titulo"> Escolha uma Rádio: </h2>
+        </div><!-- Fim .titulo-style -->
+
+        <div class="md-perfis-box" ng-repeat="item in tperCtrl.usuLista">
+
+            <ul>
+                <li>
+                    <a href="http://ecad.rbvradios.com.br/#/perfil/{{item.perfilname}}">
+                        <img ng-src="http://ecad.rbvradios.com.br/img/{{item.foto}}/0/">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://ecad.rbvradios.com.br/#/perfil/{{item.perfilname}}">
+                        <h2>{{item.nome}}</h2>
+                    </a>
+                </li>
+            </ul>
+            
+        </div><!-- Fim .md-perfis-box -->
+
+    </div><!-- Fim .md-perfis-lista -->
+
+
+</section><!-- Fim #header -->
+        

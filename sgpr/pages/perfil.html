@@ -1,0 +1,9 @@
+<div class="perfil" ng-controller="PerfilCtrl as perfilCtrl">
+	
+	<box-projetos ng-if="perfilCtrl.projetos.length > 0" ng-repeat="item in perfilCtrl.projetos | filter: principalCtrl.searchNome" status="{{item.status}}" descricao="{{item.descricao}}" dono="{{item.dono}}" id="{{item.id}}" empresa="{{item.empresa}}" nome="{{item.nome}}" criado="{{item.criadopor}}" tipo="{{item.tipo}}" data="{{item.data}}" datafim="{{item.data_final}}" dataupdate="{{item.data_last_update}}" dados="perfilCtrl.projetos[$index]" dtagendamento="{{item.dataagendamento}}" hragendamento="{{item.hragendamento}}" controle="principalCtrl.controle" deletar="perfilCtrl.deletar(item.id);"></box-projetos>
+
+	<div class="mais-projetos" ng-if="perfilCtrl.projetos.length >= 12">
+		<button ng-show="perfilCtrl.buttonGetProjetos" class="btn btn-full-aprove" ng-click="perfilCtrl.getProjetos();"> Carregar Todos os Chamados/Projetos</button>
+	</div><!-- Fim .mais-projetos -->
+
+</div><!-- Fim .home -->

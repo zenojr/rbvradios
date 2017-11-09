@@ -1,0 +1,39 @@
+<section class="md-coluna" ng-controller="AuditoriaCtrl as audCtrl" ng-if=" prinCtrl.controle.tipo == 'adm' ">
+
+    <div class="titulo-style">
+        <h2> Auditoria </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <div class="add-item">
+        <form novalidate>
+            <input ng-model="searchNome" type="text" placeholder="Procurar por Usuário ..." />
+        </form>
+    </div><!-- Fim #add-item -->
+
+    <div class="md-auditoria-lista">
+
+        <div class="titulo-style">
+            <h2> Lista </h2>
+        </div><!-- Fim .titulo-style -->
+
+        <div class="md-auditoria-box" ng-repeat="item in audCtrl.usuLista | filter: searchNome">
+
+            <ul>
+                <li>
+                    <h2>Usuário: {{item.usuario}}</h2>
+                </li>
+                <li>
+                    {{item.conteudo}}
+                </li>
+                <li>
+                    Data: {{item.data}}
+                </li>
+            </ul>
+            
+        </div><!-- Fim .md-auditoria-box -->
+
+    </div><!-- Fim .md-auditoria-lista -->
+
+
+</section><!-- Fim #header -->
+        

@@ -1,0 +1,69 @@
+<section id="md-coluna" ng-controller="PostagemCtrl as postCtrl">
+
+    <div class="alert success" ng-show="postCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="postCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2> Opções </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <div class="add-item">
+        <a class="btn btn-success" href="#postagem/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <div class="md-postagem-lista">
+
+        <div class="titulo-style">
+            <h2 class="pr-titulo"> Suas últimas postagens: </h2>
+        </div><!-- Fim .titulo-style -->
+
+        <div class="timeline-post" ng-repeat="item in postCtrl.postLista">
+
+            <div class="timeline-post-opt">
+                <ul>
+                    <li>
+                        <span ng-click="postCtrl.deletar(item);" title="Excluir">
+                            <i class="fa fa-close fa-2x style-color-danger"></i>
+                        </span>                    
+                    </li>
+                    
+                    <li>
+                        <a href="#/postagem/editar/{{item.id}}" title="Editar">
+                            <i class="fa fa-pencil-square-o fa-2x style-color-warning"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- Fim .timeline-post-opt -->
+            
+            <div class="timeline-post-conteudo">
+                <ul>
+                    <li class="timeline-post-conteudo-desc">
+                        <span>Postado em {{item.data | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
+                    </li>
+                    <li>
+                        <h2 ng-bind-html="item.titulo"></h2>
+                    </li>
+                    <li ng-bind-html="item.descricao">
+                    </li>
+                    <li class="timeline-post-conteudo-download" ng-if=" item.audio != null ">
+
+                        <a class="btn btn-other" ng-href="http://cda.rbvradios.com.br/service/audio/download/{{item.audio}}">
+                            <i class="fa fa-download fa-1x"></i>
+                            Baixar Áudio
+                        </a>
+
+                        <a class="btn btn-otherOne btn-margin-lf-ri" ng-href="http://cda.rbvradios.com.br/service/audio/ouvir/{{item.audio}}" target="_blank">
+                            <i class="fa fa-headphones fa-1x"></i>
+                            Escutar Áudio
+                        </a>
+
+                    </li>
+                </ul>
+            </div><!-- Fim .timeline-post-conteudo -->
+
+        </div><!-- Fim .timeline-post -->
+
+    </div><!-- Fim .timeline -->
+
+</section><!-- Fim #header -->
+        

@@ -1,0 +1,31 @@
+<section id="md-coluna" ng-controller="UsuariosCtrl as usuCtrl">
+
+    <div class="alert success" ng-show="usuCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="usuCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Adicionar Usuário </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Nome Completo: </label>
+        <input ng-model="usuCtrl.usuarios.nome" type="text" required/>
+
+        <label> Email: </label>
+        <input ng-model="usuCtrl.usuarios.email" type="email" required/>
+
+        <label> Senha: </label>
+        <input ng-model="usuCtrl.usuarios.senha" type="password" required/>
+
+        <label> Nível: </label>
+        <select ng-model="usuCtrl.usuarios.nivel" required>
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+        </select>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="usuCtrl.salvar(usuCtrl.usuarios);" />
+
+    </form>
+
+</section><!-- Fim #header -->

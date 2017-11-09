@@ -1,0 +1,57 @@
+<section class="restrito" ng-controller="ProjetosCtrl as projetosCtrl">
+
+    <div class="alert success" ng-show="projetosCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="projetosCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> <i class="fa fa-plus-square"></i> {{projetosCtrl.situacao}} Projeto</h3>
+
+    <form name="form" id="form" novalidate>
+
+        <label> Empresa:</label>
+        <select ng-model="projetosCtrl.projetos.empresa" ng-change="projetosCtrl.getEquipamentos(projetosCtrl.projetos.empresa)" required ng-disabled="projetosCtrl.readOnly">
+            <option ng-repeat="item in projetosCtrl.radios">{{item.radio}}</option>
+        </select>
+
+        <label> Título: </label>
+        <input ng-model="projetosCtrl.projetos.nome" type="text" required ng-disabled="projetosCtrl.readOnly"/>
+
+        <label> Descrição: </label>
+        <textarea ui-tinymce ng-model="projetosCtrl.projetos.descricao"></textarea>
+
+        <label> Tipo de Atendimento: </label>
+        <select ng-model="projetosCtrl.projetos.tipo" required ng-disabled="projetosCtrl.readOnly"
+                ng-change="projetosCtrl.findAtendimentoSuporte(projetosCtrl.projetos.tipo)">
+            <option ng-repeat="item in projetosCtrl.listaAtendimento" value="{{item.valor}}">{{item.nome}}</option>
+        </select>
+
+        <label ng-if=" projetosCtrl.projetos.tipo != null && projetosCtrl.projetos.tipo.indexOf('Suporte') != -1"> Tipo de Equipamento: </label>
+        <select ng-model="projetosCtrl.tipoEquipamento" ng-if=" projetosCtrl.projetos.tipo != null && projetosCtrl.projetos.tipo.indexOf('Suporte') != -1" required ng-disabled="projetosCtrl.readOnly">
+            <option ng-repeat="item in projetosCtrl.tiposequipamento" value="{{item.nome}}">{{item.nome}}</option>
+        </select>
+
+        <label ng-if="projetosCtrl.tipoEquipamento != null"> Nome do Equipamento:</label>
+        <select ng-model="projetosCtrl.projetos.equipamento" ng-if="projetosCtrl.tipoEquipamento != null" required ng-disabled="projetosCtrl.readOnly">
+            <option ng-repeat="item in projetosCtrl.equipamentos | filter: projetosCtrl.tipoEquipamento" value="{{item.nregistro}}">{{item.nome}}</option>
+        </select>
+
+        <label> Status: </label>
+        <select ng-model="projetosCtrl.projetos.status" required ng-disabled="projetosCtrl.readOnly">
+            <option ng-repeat="item in projetosCtrl.listaStatus" value="{{item.valor}}">{{item.nome}}</option>
+        </select>
+
+        <div ng-if=" projetosCtrl.projetos.status == 'agendado' ">
+            <label> Data e Hora do Agendamento: </label>
+            <input ng-model="projetosCtrl.projetos.dataagendamento" type="text" placeholder="00/00/0000" mask="99/99/9999" required ng-disabled="projetosCtrl.readOnly"/>
+            <input ng-model="projetosCtrl.projetos.horaagendamento" type="text" placeholder="00:00" mask="99:99" required ng-disabled="projetosCtrl.readOnly"/>
+        </div>
+
+        <label> Atribuir a Usuário:</label>
+        <select ng-model="projetosCtrl.projetos.dono" required ng-disabled="projetosCtrl.readOnly">
+            <option ng-repeat="item in projetosCtrl.perfil" value="{{item.perfilname}}" ng-selected="{{projetosCtrl.projetos.dono}}">{{item.nome}}</option>
+        </select>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="projetosCtrl.salvar();" ng-hide="projetosCtrl.readOnly"/>
+
+    </form>
+
+</section><!-- Fim #header -->

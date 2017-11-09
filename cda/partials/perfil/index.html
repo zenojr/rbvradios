@@ -1,0 +1,53 @@
+<section id="conteudo" ng-controller="PerfilCtrl as perfCtrl">
+    
+    <div class="timeline-perfil" ng-repeat="item in perfCtrl.perfLista">
+        <ul>
+            <li>
+                <img ng-src="http://img.rbvradios.com.br/perfil/{{item.foto}}/0/">
+            </li>
+            <li>
+                <h2 ng-bind="item.nome"></h2>
+            </li>
+        </ul>
+    </div><!-- Fim .timeline-perfil -->
+
+    <div class="timeline">
+
+        <div class="timeline-titulo">
+            <h1> Últimos uploads deste usuário: </h1>
+        </div><!-- Fim .timeline-titulo -->
+
+        <div class="timeline-post" ng-repeat="item in perfCtrl.timeLista">
+            
+            <div class="timeline-post-conteudo">
+                <ul>
+                    <li class="timeline-post-conteudo-desc">
+                        <span>Postado em {{item.data | date:"dd/MM/yyyy 'às' HH:mm:ss"}}</span>
+                    </li>
+                    <li>
+                        <h2 ng-bind-html="item.titulo"></h2>
+                    </li>
+                    <li ng-bind-html="item.descricao">
+                    </li>
+                    <li class="timeline-post-conteudo-download" ng-if=" item.audio != null ">
+
+                        <a class="btn btn-other" ng-href="http://cda.rbvradios.com.br/service/audio/download/{{item.audio}}">
+                            <i class="fa fa-download fa-1x"></i>
+                            Baixar Áudio
+                        </a>
+
+                        <a class="btn btn-otherOne btn-margin-lf-ri" ng-href="http://cda.rbvradios.com.br/service/audio/ouvir/{{item.audio}}" target="_blank">
+                            <i class="fa fa-headphones fa-1x"></i>
+                            Escutar Áudio
+                        </a>
+
+                    </li>
+                </ul>
+            </div><!-- Fim .timeline-post-conteudo -->
+
+        </div><!-- Fim .timeline-post -->
+
+    </div><!-- Fim .timeline -->
+
+</section><!-- Fim #header -->
+        

@@ -1,0 +1,45 @@
+<section id="md-coluna" ng-controller="UsuariosEditCtrl as ediCtrl">
+
+    <div class="alert success" ng-show="ediCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="ediCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2 class="pr-titulo"> Editar Usuário </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <form class="formulario" name="form" id="form" novalidate>
+
+        <label> Nome Completo: </label>
+        <input ng-model="ediCtrl.usuEdit.nome" type="text" required/>
+
+        <label> Email: </label>
+        <input ng-model="ediCtrl.usuEdit.email" type="email" required/>
+
+        <label> Senha: </label>
+        <input ng-model="ediCtrl.usuEdit.senha" type="password" required/>
+
+<!--         <label> Perfil Name: </label>
+        <input ng-model="ediCtrl.usuEdit.perfilname" type="text" required/> -->
+
+        <label> Foto ( 150 x 150px ): </label>
+        
+        <div class="usu-edit-foto">
+            <img class="usu-edit-foto-img" ng-show="!ediCtrl.fotoDel" ng-src="http://img.rbvradios.com.br/perfil/{{ediCtrl.usuEdit.foto}}/0/"/>
+        </div><!-- Fim .usu-edit-foto -->
+
+        <input ngf-select name="file" ngf-validate="{height: {max: 150}, width: {max: 150}}" accept="image/*" ng-show="ediCtrl.fotoDel" ng-disabled="!ediCtrl.fotoDel" ng-model="ediCtrl.usuEdit.foto" type="file" ng-required="ediCtrl.fotoDel"/>
+        <div ng-show="ediCtrl.fotoDel" class="pr-progress" ng-show="ediCtrl.progress!=0">
+            <div class="pr-bar" style="width:{{ediCtrl.progress}}%;"></div>
+        </div>
+
+        <div class="usu-edit-removeFoto" ng-hide="ediCtrl.fotoDel"> <button ng-click="ediCtrl.deletarFt('foto', ediCtrl.usuEdit);" class="btn btn-danger">Deletar</button> </div>
+
+        <label ng-if=" prinCtrl.controle.tipo == 'adm' "> Nível: </label>
+        <select ng-if=" prinCtrl.controle.tipo == 'adm' " ng-model="ediCtrl.usuEdit.nivel" ng-options="opt.nivel as opt.nivel for opt in [{nivel:1},{nivel:2}]" required>
+        </select>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="ediCtrl.alterar(ediCtrl.usuEdit);" />
+
+    </form>
+
+</section><!-- Fim #header -->

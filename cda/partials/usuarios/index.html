@@ -1,0 +1,46 @@
+<section class="md-coluna" ng-controller="UsuariosCtrl as usuCtrl">
+
+    <div class="alert success" ng-show="usuCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="usuCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="titulo-style">
+        <h2> Opções </h2>
+    </div><!-- Fim .titulo-style -->
+
+    <div ng-if=" prinCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#usuarios/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <div class="md-usuarios-lista">
+
+        <div class="titulo-style" ng-if=" prinCtrl.controle.tipo == 'adm' ">
+            <h2 class="pr-titulo"> Lista Usuários </h2>
+        </div><!-- Fim .titulo-style -->
+
+        <div class="md-usuarios-box" ng-repeat="item in usuCtrl.usuLista">
+
+            <ul>
+                <li>
+                    <img ng-src="http://img.rbvradios.com.br/perfil/{{item.foto}}/0/">
+                </li>
+                <li>
+                    <h2>{{item.nome}}</h2>
+                </li>
+                <li>
+                    <h2>Nivel: {{item.nivel}}</h2>
+                </li>
+                <li>
+                    <a class="btn btn-warning" ng-href="#usuarios/editar/{{item.id}}" >Editar</a>
+                </li>
+                <li ng-if=" prinCtrl.controle.tipo == 'adm' ">
+                    <button ng-click="usuCtrl.deletar(item);" class="btn btn-danger">Deletar</button>
+                </li>
+            </ul>
+            
+        </div><!-- Fim .md-usuarios-box -->
+
+    </div><!-- Fim .md-usuarios-lista -->
+
+
+</section><!-- Fim #header -->
+        

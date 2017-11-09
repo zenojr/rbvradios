@@ -1,0 +1,43 @@
+<section id="conteudo" ng-controller="PerfilCtrl as perfCtrl">
+    
+    <div class="timeline-perfil" ng-repeat="item in perfCtrl.perfLista">
+        <ul>
+            <li>
+                <img ng-src="http://ecad.rbvradios.com.br/img/{{item.foto}}/0/">
+            </li>
+            <li>
+                <h1 ng-bind="item.nome"></h1>
+            </li>
+            <li>
+                {{item.telefone | brPhoneNumber}}
+            </li>
+            <li>
+                {{item.rua}} - {{item.bairro}} - {{item.cidade}}
+            </li>
+        </ul>
+    </div><!-- Fim .timeline-perfil -->
+
+    <div class="timeline">
+
+        <div class="timeline-titulo">
+            <h1> Relatórios: </h1>
+        </div><!-- Fim .timeline-titulo -->
+
+        <div class="timeline-post" ng-repeat="item in perfCtrl.timeLista">
+            
+            <div class="timeline-post-conteudo">
+                <ul>
+                    <li class="timeline-post-conteudo-desc">
+                        <a href="http://ecad.rbvradios.com.br/pdf/{{item.arquivo}}/0/" target="_blank">
+                            Ecad do mês {{item.data}}
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- Fim .timeline-post-conteudo -->
+
+        </div><!-- Fim .timeline-post -->
+
+    </div><!-- Fim .timeline -->
+
+</section><!-- Fim #header -->
+        

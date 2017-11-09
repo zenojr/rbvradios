@@ -1,0 +1,36 @@
+<header class="m-analytics-info">
+	<nav class="menu-sites">
+		<h3> Dados do Site: </h3>
+		<div id="view-selector-container"></div>
+		<div class="m-analytics-rotate">
+			<h3>Rodar Automaticamente:</h3>
+			<button class="btn btn-primary" ng-if="!rotateInitiate" ng-click="iniRotate();"> Iniciar </button>
+			<button class="btn btn-warning" ng-if="rotateInitiate" ng-click="cancelRotate();"> Parar </button>
+		</div><!-- end .m-analytics-rodate -->
+	</nav>
+	<div id="view-name"></div>
+	<div id="active-users-container"></div>
+</header>
+<div class="Chartjs">
+	<h2 class="titulo titulo-box">Esta semana vs última semana (por sessões)</h2>
+	<figure class="Chartjs-figure" id="chart-1-container"></figure>
+	<ol class="Chartjs-legend" id="legend-1-container"></ol>
+</div>
+<div class="Chartjs">
+	<h2 class="titulo titulo-box">Este ano vs último ano (pelos usuários)</h2>
+	<figure class="Chartjs-figure" id="chart-2-container"></figure>
+	<ol class="Chartjs-legend" id="legend-2-container"></ol>
+</div>
+<div class="Chartjs">
+	<h2 class="titulo titulo-box">Top Navegadores (por exibição de página)</h2>
+	<figure class="Chartjs-figure" id="chart-3-container"></figure>
+	<ol class="Chartjs-legend" id="legend-3-container"></ol>
+</div>
+<div class="Chartjs">
+	<h2 class="titulo titulo-box">Principais países (por sessões)</h2>
+	<figure class="Chartjs-figure" id="chart-4-container"></figure>
+	<ol class="Chartjs-legend" id="legend-4-container"></ol>
+</div>
+<footer class="m-analytics-rodape">
+	Rede Barriga Verde de Comunicações
+</footer>

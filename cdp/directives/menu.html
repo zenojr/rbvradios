@@ -1,0 +1,38 @@
+<div class="menu">
+    <ul class="menu-dir">
+
+        <a href="#home" title="Home">
+            <li>
+                <i class="fa fa-home fa-2x"></i>
+            </li>
+        </a>
+        <a href="#enviarpush" title="Enviar Notificação">
+            <li>
+                <i class="fa fa-paper-plane fa-2x"></i>
+            </li>
+        </a>
+        <a href="#clientes" title="Clientes" ng-if=" permissoes.tipo == 'adm' ">
+            <li>
+                <i class="fa fa-user-plus fa-2x"></i>
+            </li>
+        </a>
+        <a href="#auditoria" title="Auditoria" ng-if=" permissoes.tipo == 'adm' ">
+            <li>
+                <i class="fa fa-file-text-o fa-2x"></i>
+            </li>
+        </a>
+     </ul>
+
+     <ul class="menu-esq">
+        <a href="#usuarios" title="Minhas Configurações">
+            <li>
+                <i class="fa fa-cog fa-2x"></i>
+            </li>
+        </a>
+        <a href="service/logout" title="Sair">
+            <li>
+                <i class="fa fa-sign-out fa-2x"></i>
+            </li>
+        </a>
+     </ul>
+</div><!-- Fim .menu -->

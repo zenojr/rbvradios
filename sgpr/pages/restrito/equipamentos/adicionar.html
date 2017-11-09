@@ -1,0 +1,47 @@
+<section class="restrito"  ng-controller="AddEquipamentosCtrl as equiCtrl">
+
+    <div class="alert success" ng-show="equiCtrl.msgSuccess">ENVIADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="equiCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <div class="btn-options">
+        <a class="btn btn-info" href="#equipamentos">Voltar</a>
+    </div><!-- end .btn-options -->
+
+    <h3 class="pr-titulo"> Adicionar Equipamentos</h3>
+
+    <form name="form" id="form" novalidate>
+
+        <label> Empresa: </label>
+        <select ng-model="equiCtrl.equipamento.empresa" required>
+            <option ng-repeat="item in equiCtrl.radios">{{item.radio}}</option>
+        </select>
+
+        <label> Setor: </label>
+        <select ng-model="equiCtrl.equipamento.setor" required>
+            <option ng-repeat="item in equiCtrl.setores">{{item.nome}}</option>
+        </select>
+
+        <label> Tipo de Equipamento: </label>
+        <select ng-model="equiCtrl.equipamento.tipo" required>
+            <option ng-repeat="item in equiCtrl.tiposequipamento">{{item.nome}}</option>
+        </select>
+
+        <label> Nome do Equipamento: </label>
+        <input ng-model="equiCtrl.equipamento.nome" type="text" required/>
+
+        <label> Descrição: </label>
+        <textarea ui-tinymce ng-model="equiCtrl.equipamento.descricao"></textarea>
+
+        <label> Status: </label>
+        <select ng-model="equiCtrl.equipamento.status" required>
+            <option value="1" selected> Ativo </option>
+        </select>
+
+        <label> Número de Registro: </label>
+        <input ng-model="equiCtrl.equipamento.nregistro" disabled type="text" required/>
+    
+        <input ng-disabled="form.$invalid" class="btn btn-success" type="submit" value=" Salvar " ng-click="equiCtrl.salvar();" />
+
+    </form>
+
+</section><!-- Fim #header -->

@@ -1,0 +1,78 @@
+<section class="restrito" ng-controller="RelatorioEquipamentosCtrl as relaCtrl">
+
+    <div class="alert success" ng-show="relaCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="relaCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> Relatórios de Equipamentos </h3>
+        
+    <div class="m-buscas">
+        
+        <div class="m-busca">
+            <h3 class="m-busca-titulo"> Relatório Completo: </h3>
+
+            <form name="form" id="form" novalidate>
+                <label> Número de Registro:</label>
+                <input type="text" ng-model="numeroRegistro" required>
+                <input ng-if=" numeroRegistro != null " class="btn btn-success" type="submit" value=" Buscar " ng-click="relaCtrl.relatorioPorRegistro(numeroRegistro);" />
+            </form>
+
+        </div><!-- end .m-busca -->
+
+        <div class="m-busca">
+
+            <h3 class="m-busca-titulo"> Por Rádio e Equipamento:</h3>
+
+            <form name="form" id="form" novalidate>
+                <label> Empresa:</label>
+                <select ng-change="relaCtrl.getEquipamentos(radioSeleced)" ng-model="radioSeleced" required>
+                    <option ng-repeat="item in relaCtrl.radios">{{item.radio}}</option>
+                </select>
+
+                <label ng-show=" radioSeleced != null "> Tipo de Equipamento: </label>
+                <select ng-show=" radioSeleced != null " ng-model="tipoEquipamento" required>
+                    <option ng-repeat="item in relaCtrl.tiposequipamento" value="{{item.nome}}">{{item.nome}}</option>
+                </select>
+
+                <label ng-if=" tipoEquipamento != null "> Equipamento: </label>
+                <select ng-model="equipamentoSelected" ng-if=" tipoEquipamento != null " ng-change="relaCtrl.relatorioPorNome(equipamentoSelected)" required>
+                    <option ng-repeat="item in relaCtrl.equipamentos | filter: tipoEquipamento" value="{{item}}">{{item.nome}} - Nº Re.: {{item.nregistro}}</option>
+                </select>
+            </form>
+            
+        </div><!-- end .m-busca -->
+
+    </div><!-- end .m-buscas -->
+
+    <div class="m-relatorio-titulo" ng-if=" relaCtrl.relatorio.length > 0">
+        <button class="btn btn-purple" ng-click="relaCtrl.imprimir();">
+            <i class="fa fa-print"></i>
+            Imprimir
+        </button>
+        <h3 class="pr-titulo"> Relatório: </h3>
+        <h3 class="pr-titulo"> Nº de Chamados Realizados no Equipamento: {{relaCtrl.relatorio.length}}</h3>
+    </div><!-- end .m-relatorio-titulo -->
+
+    <div class="alert info" ng-if="!relaCtrl.relatorio.length && relaCtrl.relatorio != null"> Nenhum Relátorio Encontrado </div>
+    
+    <div class="m-relatorio" ng-if=" relaCtrl.relatorio.length > 0">
+        
+        <div class="m-relatorio-box" ng-repeat="item in relaCtrl.relatorio">
+            <a href="#/projetos/visualizar/{{item.id}}" target="_blank" title="Visualizar por completo">
+                <ul class="m-relatorio-box-itens">
+                    <li class="m-relatorio-box-item" ng-class="item.status">Nº do chamado: {{item.id}} - Status: {{item.status}} - Data: {{item.data | convertDate}}</li><!-- end .m-relatorio-box-item -->
+                    <li ng-if=" item.empresa != null " class="m-relatorio-box-item is-bold">Empresa: {{item.empresa}}</li><!-- end .m-relatorio-box-item -->
+                    <li ng-if=" item.nomeequipamento != null " class="m-relatorio-box-item is-bold">Equipamento: {{item.nomeequipamento}}</li><!-- end .m-relatorio-box-item -->
+                    <li class="m-relatorio-box-item is-bold">Titulo do Chamado: </li><!-- end .m-relatorio-box-item -->
+                    <li class="m-relatorio-box-item" ng-bind-html="item.nome"></li><!-- end .m-relatorio-box-item -->
+                    <li class="m-relatorio-box-item is-bold">Descrição: </li><!-- end .m-relatorio-box-item -->
+                    <li class="m-relatorio-box-item" ng-bind-html="item.descricao"></li><!-- end .m-relatorio-box-item -->
+                    <li class="m-relatorio-box-item is-bold">Criado Por: {{item.criadopor}} / Atendido Por: {{item.dono}}</li><!-- end .m-relatorio-box-item -->
+                </ul><!-- end .m-relatorio-box-itens -->
+            </a>
+        </div><!-- end .m-relatorio-box -->
+
+    </div><!-- end .m-relatorio -->
+    
+
+</section><!-- Fim #header -->
+        

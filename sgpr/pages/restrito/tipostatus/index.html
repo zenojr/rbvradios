@@ -1,0 +1,36 @@
+<section class="restrito" ng-controller="TiposStatusCtrl as statCtrl">
+
+    <div class="alert success" ng-show="statCtrl.msgSuccess">DELETADO COM SUCESSO! </div>
+    <div class="alert warning" ng-show="statCtrl.msgError"> OCORREU UM PROBLEMA CONTATE O PROGRAMADOR! (ERRO #1)</div>
+
+    <h3 class="pr-titulo"> Lista Tipo de Status </h3>
+
+    <div ng-if="principalCtrl.controle.tipo == 'adm' " class="add-item">
+        <a class="btn btn-success" href="#tipostatus/adicionar">Adicionar</a>
+    </div><!-- Fim #add-item -->
+
+    <table class="tb-comuns">
+        <thead><!--  cabeçalho da tabela -->
+            <tr>
+                <td>Nome</td>
+                <td>Valor</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " ></td>
+            </tr>
+
+            <tr ng-repeat="item in statCtrl.statusLista"> 
+                <td>{{item.nome}}</td>
+                <td>{{item.valor}}</td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <a class="btn btn-warning" ng-href="#tipostatus/editar/{{item.idstatus}}" >Editar</a>
+                </td>
+                <td ng-if="principalCtrl.controle.tipo == 'adm' " >
+                    <button ng-click="statCtrl.deletar(item, $index);" class="btn btn-danger">Deletar</button>
+                </td>
+            </tr>
+                
+        </thead><!--  cabeçalho da tabela -->
+    </table>
+
+</section><!-- Fim #header -->
+        
