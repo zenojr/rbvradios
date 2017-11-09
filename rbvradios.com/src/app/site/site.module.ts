@@ -11,7 +11,7 @@ import { SiteComponent } from './site.component';
     SiteComponent
   ],
   exports: [
-    app-site
+    SiteComponent
   ]
 })
 export class SiteModule { }
