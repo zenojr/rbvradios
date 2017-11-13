@@ -1,0 +1,148 @@
+ /* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+
+.side-nav{
+    opacity: 0.8;
+    width: 60%;
+  }
+ 
+ .social_media a {
+   padding: 5px;
+ }
+ 
+ .right{
+   margin-top: 15px;
+ }
+ 
+  .frame-top{
+   height: 80px;
+ }
+ 
+ .row{
+   text-align: center;
+ }
+ 
+ .brand-logo img{
+   width: 6rem;
+   margin-top: 10px;
+ }
+ 
+ nav ul a,
+ nav .brand-logo {
+   color: #444;
+ }
+ 
+ p {
+   line-height: 2rem;
+ }
+ 
+ .button-collapse {
+   color: #26a69a;
+ }
+ 
+ .parallax-container {
+   min-height: 380px;
+   line-height: 0;
+   height: auto;
+   color: rgba(255,255,255,.9);
+ }
+   .parallax-container .section {
+     width: 100%;
+   }
+ 
+ @media only screen and (max-width : 992px) {
+   .parallax-container .section {
+     position: absolute;
+     top: 40%;
+   }
+   #index-banner .section {
+     top: 10%;
+   }
+ }
+ 
+ @media only screen and (max-width : 600px) {
+   #index-banner .section {
+     top: 0;
+   }
+ }
+ 
+ .icon-block {
+   padding: 0 15px;
+ }
+ .icon-block .material-icons {
+   font-size: inherit;
+ }
+ 
+ footer.page-footer {
+   margin: 0;
+ }
+ 
+ .centroRadiosSuperior{
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+ }
+ 
+ .centroRadiosSuperior img{
+   width: 60%;
+ }
+ 
+ .centroRadiosInferior{
+   position: relative;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+ }
+ 
+ .centroRadiosInferior img{
+   width: 40%;
+ }
+ 
+ .logosRadios{
+   align-self: center;
+     
+ }
+ 
+ 
+ 
+ /* Radio logos for mobile */
+ @media only screen and (max-width : 600px) {
+   .logosRadios img{
+     width: 50%
+   }
+ }
+ 
+ .modal-content{
+   color: grey;
+   text-align: justify;
+ 
+ }
+ 
+ .modal-content p {
+   background-color: 
+ }
+ 
+ .logo_form{
+   
+ }
+ 
+ .modal-content a{
+   margin-bottom: 5px;
+ }
+ 
+ .logo-contato img{
+   width: 10%;
+ }
+ 
+ .btn_modal{
+   width: 15px;
+ }
+
+ 
