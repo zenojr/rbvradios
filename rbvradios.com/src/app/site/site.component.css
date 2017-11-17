@@ -88,10 +88,11 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: space-around;
+   
  }
  
  .centroRadiosSuperior img{
-   width: 60%;
+   height: 3.5rem;
  }
  
  .centroRadiosInferior{
@@ -145,4 +146,29 @@
    width: 15px;
  }
 
- 
+ .fagocolf{
+   font-family: fagocolf;
+ }
+
+ .myrardsemibold{
+   font-family: myrardsemibold;
+ }
+
+ .myrard{
+   font-family: myrard;
+ }
+
+@font-face {
+    font-family: fagocolf;
+    src: url(../../assets/fonts/fagocolf.ttf);
+}
+
+@font-face {
+  font-family: myrardsemibold;
+  src: url(../../assets/fonts/myrardpro-semimbold.otf);
+}
+
+@font-face {
+  font-family: myrard;
+  src: url(../../assets/fonts/myrardpro-regular.otf);
+}

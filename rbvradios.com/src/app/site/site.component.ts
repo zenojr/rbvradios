@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
-
 @Component({
   selector: 'app-site',
   templateUrl: './site.component.html',
@@ -15,6 +12,8 @@ export class SiteComponent implements OnInit {
     nome: 'abc',
     email: 'mail@mail.com'
   }
+
+
 
 
   constructor() { }
