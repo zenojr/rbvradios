@@ -94,6 +94,8 @@
  .centroRadiosSuperior img{
    height: 3.5rem;
  }
+
+
  
  .centroRadiosInferior{
    position: relative;
@@ -115,10 +117,20 @@
  
  /* Radio logos for mobile */
  @media only screen and (max-width : 600px) {
-   .logosRadios img{
-     width: 50%
+  .logosRadios img{
+    width: 50%
    }
- }
+
+  .centroRadiosSuperior img{
+    width: 100%;
+    height: 100%;
+  }
+
+  /* .centroRadiosSuperior :last-child img{
+    width: 10rem;
+    
+  } */
+}
  
  .modal-content{
    color: grey;
