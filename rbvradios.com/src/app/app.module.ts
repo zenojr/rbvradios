@@ -6,16 +6,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SiteModule } from './site/site.module';
+import { DbaudioComponent } from './dbaudio/dbaudio.component';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DbaudioComponent
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
     FormsModule,
-    SiteModule
+    SiteModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
