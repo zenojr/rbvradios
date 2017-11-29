@@ -1,7 +1,67 @@
 
+body{
+    margin: 0;
+    
+    
+}
+
+.card{
+    background-color : #e0ebeb;
+
+}
+
 
 .img_principal img{
-    width: 200px;
+    width: 150px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.collapsible{
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+}
+
+.horarios a{
+    float: right;
+}
+
+
+
+.chip{
+    
+    margin-top: 10%;
+    width: 160px;
+    /* float: right; */
+    margin-left: 10px;
+    justify-content: flex-start;
+
+}
+
+.chip img {
+  object-fit: cover;
+}
+
+.collUnit a{
+    
+}
+
+address{
+    position: relative;
+    padding-bottom: 50px;
+    
+
+    
+}
+
+.container_colapsible{
+    
+}
+
