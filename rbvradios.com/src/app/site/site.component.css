@@ -145,6 +145,21 @@
  .logo_form{
    
  }
+
+ .texto_banner{
+   background-color: rgba(0, 0, 0, 0.7);
+   padding: 8px;
+   
+ }
+
+ .historico p{
+   
+   text-align: justify;
+   margin-left: 5%;
+   margin-right: 5%;
+   
+ }
+
  
  .modal-content a{
    margin-bottom: 5px;
