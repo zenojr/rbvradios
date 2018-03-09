@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DbaudioComponent implements OnInit {
 
+  mailToTangara: string = "mailto:opec@rbvradios.com.br?Subject=Gravar%Audio";
+
   constructor() { }
 
   ngOnInit() {

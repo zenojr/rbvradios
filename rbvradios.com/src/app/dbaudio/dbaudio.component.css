@@ -38,7 +38,8 @@ body{
 .chip{
     
     margin-top: 10%;
-    width: 160px;
+    width: 190px;
+    height: 42px;
     /* float: right; */
     margin-left: 10px;
     justify-content: flex-start;
@@ -47,6 +48,8 @@ body{
 
 .chip img {
   object-fit: cover;
+  width: 40px;
+  height: 40px;
 }
 
 .collUnit a{
