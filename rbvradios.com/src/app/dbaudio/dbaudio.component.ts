@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DbaudioComponent implements OnInit {
 
-  mailToTangara: string = "mailto:opec@rbvradios.com.br?Subject=Gravar%Audio";
+  mail: string = "mailto:opec@rbvradios.com.br?Subject=Gravar%AudioNew";
+
+  horario: string = "15:00 às 18:00";
+
+  
 
   constructor() { }
 

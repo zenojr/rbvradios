@@ -1,6 +1,7 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { environment } from './../environments/environment';
 import { MaterializeModule } from 'angular2-materialize';
 
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -8,6 +9,9 @@ import { AppComponent } from './app.component';
 import { SiteModule } from './site/site.module';
 import { DbaudioComponent } from './dbaudio/dbaudio.component';
 import { routing } from './app.routing';
+
+import { AngularFireModule } from 'angularfire2';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { routing } from './app.routing';
     MaterializeModule,
     FormsModule,
     SiteModule,
-    routing
+    routing,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

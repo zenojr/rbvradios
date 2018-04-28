@@ -4,5 +4,15 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: 'AIzaSyBAovwaDTlDYFIfCBfMyZ_uuOgvCBmoXFQ',
+    authDomain: 'dbaudio-58e38.firebaseapp.com',
+    databaseURL: 'https://dbaudio-58e38.firebaseio.com',
+    projectId: 'dbaudio-58e38',
+    storageBucket: 'dbaudio-58e38.appspot.com',
+    messagingSenderId: '144862656403'
+  }
 };
+
+
